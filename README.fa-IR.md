@@ -54,20 +54,20 @@
       B--بله-->C["چطور استفاده کنم؟"]:::green;
       
       C-->U["ریکپچا را انتخاب میکنم"]:::green;
-      U--Views-->Q["echo CIMC_JS('recaptcha');\n echo CIMC_HTML(['captcha_name'=>'recaptcha']);"]:::green;
-      U--Controller-->W["CIMC_RULE('recaptcha');"]:::green;
+      U--Views-->Q["echo CIMC_JS('recaptcha');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'recaptcha']);"]:::green;
+      U--Controller-->W["CIMC_FIELD('recaptcha) => CIMC_RULE(),"]:::green;
       
       C-->I[آرکپچا را انتخاب میکنم]:::white;
-      I--Views-->O["echo CIMC_JS('arcaptcha');\n echo CIMC_HTML(['captcha_name'=>'arcaptcha']);"]:::white;
-      I--Controller-->P["CIMC_RULE('arcaptcha');"]:::white;
+      I--Views-->O["echo CIMC_JS('arcaptcha');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'arcaptcha']);"]:::white;
+      I--Controller-->P["CIMC_FIELD('arcaptcha) => CIMC_RULE(),"]:::white;
       
       C-->X["بی بات را انتخاب میکنم"]:::red;
-      X--Views-->V["echo CIMC_JS('bibot');\n echo CIMC_HTML(['captcha_name'=>'bibot']);"]:::red;
-      X--Controller-->N["CIMC_RULE('bibot');"]:::red;
+      X--Views-->V["echo CIMC_JS('bibot');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'bibot']);"]:::red;
+      X--Controller-->N["CIMC_FIELD('bibot) => CIMC_RULE(),"]:::red;
       
       B--خیر-->D["چطور استفاده کنم؟"]:::black;
-      D---Views:::black-->F["echo CIMC_JS('randomcaptcha');\n echo CIMC_HTML(['captcha_name'=>'randomcaptcha']);"]:::black; 
-      D---Controller:::black-->T["CIMC_RULE('archaptcha,recaptcha,bibot');"]:::black; 
+      D---Views:::black-->F["echo CIMC_JS('randomcaptcha');\n echo CIMC_ERROR();\n echo CIMC_HTML(['captcha_name'=>'randomcaptcha']);"]:::black; 
+      D---Controller:::black-->T["CIMC_FIELD('archaptcha,recaptcha,bibot') => CIMC_RULE(),"]:::black; 
 ```
 # برای بهتر شدن
 این پکیج به صورت منبع باز ارائه شده است.در صورتی که نیاز به گفتگو ،مطرح کردن ایده و ... دارید از طریق [گفتگو](https://github.com/datamweb/CodeIgniter-Multi-Captcha/discussions) اقدام کنید.همچنین در صورت وجود باگ، لطفا از طریق [گزارش باگ](https://github.com/datamweb/CodeIgniter-Multi-Captcha/issues) اقدام به ثبت موضوع کنید ما قطعا پاسخگوی شما خواهیم بود.
