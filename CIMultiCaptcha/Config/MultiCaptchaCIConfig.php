@@ -2,20 +2,21 @@
 namespace CIMC\Config;
 
 use CodeIgniter\Config\BaseConfig;
-/**
- * --------------------------------------------------------------------------
- * CodeIgniter Multi Captcha Configuration.
- * --------------------------------------------------------------------------
- *
- * @package	        CodeIgniter-Multi-Captcha(CIMC)
- * @collection	    Best Datamweb Tools CI4(BDT-CI4)
- * @author	        Pooya Parsa Dadashi
- * @link	        https://datamweb.ir
- * @github_link	    https://github.com/datamweb/CodeIgniter-Multi-Captcha
- * @since	        Version 1.0.0-pre-alpha
- * @datepublic	    2022-02-22 | 1400/12/03
- * 
- */
+    /**
+     * --------------------------------------------------------------------------
+     * CodeIgniter Multi Captcha Configuration.
+    * --------------------------------------------------------------------------
+    *
+    * @package         CodeIgniter-Multi-Captcha(CIMC)
+    * @collection      Best Datamweb Tools CI4(BDT-CI4)
+    * @author          Pooya Parsa Dadashi(@datamweb)
+    * @link            https://datamweb.ir
+    * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
+    * @since           Version 1.0.0-pre-alpha
+    * @datepublic      2022-02-22 | 1400/12/03
+    * 
+    */
+
 class MultiCaptchaCIConfig extends BaseConfig
 {
 
