@@ -62,5 +62,5 @@ In general, how to use this package will be in two ways. The first method is to 
       D---Controller:::black-->T["CIMC_FIELD('archaptcha,recaptcha,bibot') => CIMC_RULE(),"]:::black; 
 ```
 # To improve
-This package is provided as an open source. If you need to talk, come up with an idea, etc. via [discussions] (https://github.com/datamweb/CodeIgniter-Multi-Captcha/discussions) Also, if there is a bug, please register via [issues] (https://github.com/datamweb/CodeIgniter-Multi-Captcha/issues).
-If you are a programmer, please try to better participate in coding through [pulls] (https://github.com/datamweb/CodeIgniter-Multi-Captcha/pulls). We need each and every one of you to improve.
+This package is provided as an open source. If you need to talk, come up with an idea, etc. via [discussions](https://github.com/datamweb/CodeIgniter-Multi-Captcha/discussions) Also, if there is a bug, please register via [issues](https://github.com/datamweb/CodeIgniter-Multi-Captcha/issues) .
+If you are a programmer, please try to better participate in coding through [pulls](https://github.com/datamweb/CodeIgniter-Multi-Captcha/pulls) . We need each and every one of you to improve.
