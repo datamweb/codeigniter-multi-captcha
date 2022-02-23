@@ -1,6 +1,6 @@
 [English](./README.md) | فارسی
 # پکیج CI Multi Captcha(CIMC)
-این پکیج برای فریم ورک کُدایگنایتر نسخه 4 به بالا قابل استفاده است. این پکیج از سه سرویس کپچا پشتیبانی میکند،شامل سرویس آرکپچا(سرویس حرفه ای کپچا،شامل حدس تصویر،پازل و ... ساخت ایران)، بی بات(سرویس کپچای پازلی ساخت ایران) و ریکپچا(ساخت گوگل). استفاده کننده از این پکیج میتواند مشخص کند که از کدام کپچا استفاده شود و یا مشخص کند که به صورت تصادفی یک کپچا انتخاب شود.
+این پکیج برای فریم ورک کُدایگنایتر نسخه 4 به بالا قابل استفاده است. این پکیج از چهار سرویس کپچا پشتیبانی میکند،شامل سرویس آرکپچا(سرویس حرفه ای کپچا،شامل حدس تصویر،پازل و ... ساخت ایران)، بی بات(سرویس کپچای پازلی ساخت ایران)، ریکپچا(ساخت گوگل) و اچ کپچا. استفاده کننده از این پکیج میتواند مشخص کند که از کدام کپچا استفاده شود و یا مشخص کند که به صورت تصادفی یک کپچا انتخاب شود.
 
 ![Demo CIMC](./image/demo_cimc-fa-IR.gif)
 # آموزش تصویری نصب و راه اندازی
@@ -35,7 +35,9 @@
 # فایل پیکر بندی پکیج
 پیش از استفاده از این پکیج شما نیازمند دریافت دو کلید اختصاصی از هر یک از سرویس دهنده های کپچا هستید.به منظور دریافت کلید ها شما باید نسبت به ثبت نام در هر یک از سرویس دهنده های کپچا و نسبت به دریافت کلید ها اقدام کنید. برای دریافت کلید های سرویس آرکپچا به آدرس [ثبت نام آرکپچا]( https://arcaptcha.ir/sign-up)
  ، برای دریافت کلید های بی بات به آدرس [ثبت نام بی بات](https://bibot.ir/panel/user/signup/)
- و برای دریافت کلید های ریکپچا به آدرس [ثبت نام ریکپچا](https://www.google.com/recaptcha/admin/create)بروید.مراحل ثبت نام را طی و نسبت به ثبت دامنه وب سایت خود و دریافت کلید ها اقدام کنید.
+ ، برای دریافت کلید های ریکپچا به آدرس [ثبت نام ریکپچا](https://www.google.com/recaptcha/admin/create) و برای دریافت کلیدهای اچ کپچا به آدرس [ثبت نام اچ کپچا]( https://hcaptcha.com/?r=e4b628e9c617)
+ بروید.مراحل ثبت نام را طی و نسبت به ثبت دامنه وب سایت خود و دریافت کلید ها اقدام کنید.
+
   سپس به مسیر ```app/ThirdParty/CIMultiCaptcha/Config``` بروید و مقادیر کلید های```site_key``` و ```secret_key``` مربوطه را در فایل ```MultiCaptchaCIConfig.php``` جایگزین کنید.
 در صورت نیاز به تغییر رنگ،تم،اندازه و ... از طریق همین فایل اقدام کنید.
 در خصوص زبان کپچا، پکیج به صورت پیشفرض هر زبانی که در فریم ورک تنظیم شده باشد را مد نظر قرار میدهد و کپچا را با همان زبان نمایش میدهد.در صورتی که نیاز به تنظیم سفارشی زبان کپچا دارید از طریق همین فایل مقادیر```lang``` را تنظیم کنید.نکته مهم در این خصوص دو سرویس دهنده ایرانی (آرکپچا و بی بات) تنها از دو زبان فارسی(fa) و انگلیسی (en) پشتیبانی میکنند، این محدودیت مربوط به سرویس دهنده های کپچا میباشند نه پکیج
@@ -43,27 +45,32 @@
 
 
 # روش استفاده از (CIMC)
-به طور کلی نحوه استفاده از این پکیج به دو صورت خواهد بود. روش اول انتخاب سرویس توسط برنامه نویس انجام شود،برای مثال برنامه نویس قصد دارد فقط از سرویس ریکپچا استفاده کند بنابراین باید طبق نمودار زیر مسیر سبزرنگ را طی کند.مورد بعدی برنامه نویس در مشخص کردن سرویس نقشی ندارد و سیستم به صورت تصادفی یکی از سرویس ها را انتخاب میکند، برای این کار باید مسیر مشکی رنگ را طی کنید.
+به طور کلی نحوه استفاده از این پکیج به دو صورت خواهد بود. روش اول انتخاب سرویس توسط برنامه نویس انجام شود،برای مثال برنامه نویس قصد دارد فقط از سرویس ریکپچا استفاده کند بنابراین باید طبق نمودار زیر مسیر آبی رنگ را طی کند.مورد بعدی برنامه نویس در مشخص کردن سرویس نقشی ندارد و سیستم به صورت تصادفی یکی از سرویس ها را انتخاب میکند، برای این کار باید مسیر مشکی رنگ را طی کنید.
 ```mermaid
   flowchart LR;
       A[CI MULTI CHAPTCHA]-->B{"انتخاب کپچا توسط برنامه نویس؟"};
-      classDef green color:#022e1f,fill:#00f500;
-      classDef red color:#022e1f,fill:#f11111;
-      classDef white color:#022e1f,fill:#fff;
+      classDef c-Rc color:#022e1f,fill:#1a73e8;
+      classDef c-Hc color:#022e1f,fill:#22c5c7;
+      classDef c-Ac color:#022e1f,fill:#867ee2;
+      classDef c-Bc color:#022e1f,fill:#ccc;
       classDef black color:#fff,fill:#000;
-      B--بله-->C["چطور استفاده کنم؟"]:::green;
+      B--بله-->C["چطور استفاده کنم؟"]:::black;
       
-      C-->U["ریکپچا را انتخاب میکنم"]:::green;
-      U--Views-->Q["echo CIMC_JS('recaptcha');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'recaptcha']);"]:::green;
-      U--Controller-->W["CIMC_FIELD('recaptcha) => CIMC_RULE(),"]:::green;
+      C-->U["ریکپچا را انتخاب میکنم"]:::c-Rc;
+      U--Views-->Q["echo CIMC_JS('recaptcha');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'recaptcha']);"]:::c-Rc;
+      U--Controller-->W["CIMC_FIELD('recaptcha) => CIMC_RULE(),"]:::c-Rc;
+     
+      C-->H["اچ کپچا را انتخاب میکنم"]:::c-Hc;
+      H--Views-->J["echo CIMC_JS('hcaptcha');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'hcaptcha']);"]:::c-Hc;
+      H--Controller-->G["CIMC_FIELD('hcaptcha) => CIMC_RULE(),"]:::c-Hc;  
+
+      C-->I[آرکپچا را انتخاب میکنم]:::c-Ac;
+      I--Views-->O["echo CIMC_JS('arcaptcha');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'arcaptcha']);"]:::c-Ac;
+      I--Controller-->P["CIMC_FIELD('arcaptcha) => CIMC_RULE(),"]:::c-Ac;
       
-      C-->I[آرکپچا را انتخاب میکنم]:::white;
-      I--Views-->O["echo CIMC_JS('arcaptcha');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'arcaptcha']);"]:::white;
-      I--Controller-->P["CIMC_FIELD('arcaptcha) => CIMC_RULE(),"]:::white;
-      
-      C-->X["بی بات را انتخاب میکنم"]:::red;
-      X--Views-->V["echo CIMC_JS('bibot');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'bibot']);"]:::red;
-      X--Controller-->N["CIMC_FIELD('bibot) => CIMC_RULE(),"]:::red;
+      C-->X["بی بات را انتخاب میکنم"]:::c-Bc;
+      X--Views-->V["echo CIMC_JS('bibot');\n echo CIMC_ERROR(); \n echo CIMC_HTML(['captcha_name'=>'bibot']);"]:::c-Bc;
+      X--Controller-->N["CIMC_FIELD('bibot) => CIMC_RULE(),"]:::c-Bc;
       
       B--خیر-->D["چطور استفاده کنم؟"]:::black;
       D---Views:::black-->F["echo CIMC_JS('randomcaptcha');\n echo CIMC_ERROR();\n echo CIMC_HTML(['captcha_name'=>'randomcaptcha']);"]:::black; 
