@@ -9,8 +9,8 @@
  * @author          Pooya Parsa Dadashi
  * @link            https://datamweb.ir
  * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
- * @since           Version 1.0.0-pre-alpha
- * @datepublic      2022-02-19 | 1400/11/30
+ * @since           Version 1.0.1-pre-alpha
+ * @datepublic      2022-02-23 | 1400/12/04
  * 
  */
 
@@ -77,6 +77,27 @@ return [
         // filde name for print $this->validation->setRule('g-recaptcha-response', lang('MultiCaptchaCILang.ReCaptcha.g-recaptcha-response'), 'required|recaptcha');
         //if required use filde name set
         'g-recaptcha-response'          => 'من ربات نیستم گوگل',
+    ],
+    // Custom Validation language for hCaptcha
+    'hCaptcha'=> [
+        'errors' => [
+            'unknown'                               => 'سیستم به دلایلی شما را ربات تشخیص داد،مجدد تلاش کنید.',
+            'empty'                                 => 'لطفا،تیک من انسان هستم را بزنید.',
+            'unable_to_connect_api'                 => 'در این دقایق امکان برقرای ارتباط با سرویس گوگل وجود ندارد.ممکن است اینترنت اختلال و یا سرورهای اچ کپچا از دسترس خارج باشند.',
+            'attack'                                => 'از دستکاری فرم من ربات نیستم پرهیز کنید.',
+            // hCaptcha errors Api responses
+            'missing-input-secret'                  =>  'پارامتر کلید مخفی hcaptcha سایت شما فراموش شده است',
+            'invalid_input_secret'                  =>  'کلید خصوصی گوگل اشتباه می باشد.از فایل کانفینگ کلید خصوصی hcaptcha را تنظیم کنید.',
+            'missing_input_response'                =>  'پارامتر پاسخ کاربر به وب سرویس hcaptcha ارسال نشده است،لطفا از دستکاری فایلهای اصلی اجتناب کنید.واز فایل اصلی کتابخانه استفاده کنید.',
+            'invalid_input_response'                =>  'پاسخ شما اشتباه تشخیص داده شد',
+            'bad_request'                           =>  'درخواست نا معتبر!',
+            'invalid_or_already_seen_response'      =>  'پارامتر پاسخ قبلاً بررسی شده است یا مشکل دیگری دارد.',
+            'not_using_dummy_passcode'              =>  'شما از یک  کلیدسایت آزمایشی استفاده کرده اید اما از کلید مخفی مربوط به آن استفاده نکرده اید.',
+            'sitekey_secret_mismatch'               =>  ' کلید سایت با کلید مخفی ارائه شده ثبت نشده است.',
+        ],
+        // filde name for print $this->validation->setRule('h-captcha-response', lang('MultiCaptchaCILang.hCaptcha.h-captcha-response'), 'required|hcaptcha');
+        //if required use filde name set
+        'h-captcha-response'                        => "من ربات نیستم(hcaptcha)",
     ],
 
 ];

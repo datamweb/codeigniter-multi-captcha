@@ -12,8 +12,8 @@ namespace CIMC\Libraries {
     * @author          Pooya Parsa Dadashi(@datamweb)
     * @link            https://datamweb.ir
     * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
-    * @since           Version 1.0.0-pre-alpha
-    * @datepublic      2022-02-22 | 1400/12/03
+    * @since           Version 1.0.1-pre-alpha
+    * @datepublic      2022-02-23 | 1400/12/04
     * 
     */
 
@@ -71,7 +71,7 @@ namespace CIMC\Libraries {
             $this->_reCaptcha_site_key              =   $MultiCaptchaCIConfig->reCaptcha['site_key'];
             $this->_reCaptcha_secret_key            =   $MultiCaptchaCIConfig->reCaptcha['secret_key'];
             //load options from  makeMultiCaptcha($options[]) - for Enable more customization reCaptcha.
-            $this->_reCaptcha_lang                 =    $MultiCaptchaCIConfig->reCaptcha['lang'] ?? $this->CILanguage;
+            $this->_reCaptcha_lang                  =    $MultiCaptchaCIConfig->reCaptcha['lang'] ?? $this->CILanguage;
             $this->_reCaptcha_theme                 =   $options['theme']               ??  $MultiCaptchaCIConfig->reCaptcha['theme'];
             $this->_reCaptcha_size                  =   $options['size']                ??  $MultiCaptchaCIConfig->reCaptcha['size'];
             $this->_reCaptcha_tabindex              =   $options['tabindex']            ??  $MultiCaptchaCIConfig->reCaptcha['tabindex'];
@@ -82,7 +82,26 @@ namespace CIMC\Libraries {
             $this->_reCaptchaBaseURI                =   $MultiCaptchaCIConfig->reCaptcha['BaseURI'];
             $this->_reCaptchaScriptURL              =   $MultiCaptchaCIConfig->reCaptcha['ScriptURL'];
 
-
+            //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            // hCaptcha params
+            //..............................................................................................................
+            //api Key hCaptcha 
+            $this->_hCaptcha_site_key               =   $MultiCaptchaCIConfig->hCaptcha['site_key'];
+            $this->_hCaptcha_secret_key             =   $MultiCaptchaCIConfig->hCaptcha['secret_key'];
+            //load options from  makeMultiCaptcha($options[]) - for Enable more customization hCaptcha.
+            $this->_hCaptcha_lang                   =  $MultiCaptchaCIConfig->hCaptcha['lang']  ?? $this->CILanguage;
+            $this->_hCaptcha_theme                  =  $options['theme']                        ??  $MultiCaptchaCIConfig->hCaptcha['theme'];
+            $this->_hCaptcha_size                   =  $options['size']                         ??  $MultiCaptchaCIConfig->hCaptcha['size'];
+            $this->_hCaptcha_tabindex               =  $options['tabindex']                     ??  $MultiCaptchaCIConfig->hCaptcha['tabindex'];
+            $this->_hCaptcha_callback               =  $options['callback']                     ??  $MultiCaptchaCIConfig->hCaptcha['callback'];
+            $this->_hCaptcha_expired_callback       =  $options['expired_callback']             ??  $MultiCaptchaCIConfig->hCaptcha['expired_callback'];
+            $this->_hCaptcha_chalexpired_callback   =  $options['chalexpired_callback']         ??  $MultiCaptchaCIConfig->hCaptcha['chalexpired_callback'];
+            $this->_hCaptcha_open_callback          =  $options['open_callback']                ??  $MultiCaptchaCIConfig->hCaptcha['open_callback'];
+            $this->_hCaptcha_close_callback         =  $options['close_callback']               ??  $MultiCaptchaCIConfig->hCaptcha['close_callback'];
+            $this->_hCaptcha_error_callback         =  $options['error_callback']               ??  $MultiCaptchaCIConfig->hCaptcha['error_callback'];
+            //api URLs hCaptcha
+            $this->_hCaptchaBaseURI                 =  $MultiCaptchaCIConfig->hCaptcha['BaseURI'];
+            $this->_hCaptchaScriptURL               =  $MultiCaptchaCIConfig->hCaptcha['ScriptURL'];
         }
 
         /**
@@ -97,24 +116,30 @@ namespace CIMC\Libraries {
             //set just recaptcha lang in end js file linke (?hl=fa)
             // recaptcha,fa | recaptcha,en | recaptcha,ar ...
             $part = explode(",", $CaptchaName);
-                // part1
-                $CaptchaName= $part[0]; 
-                // part2
-                $googleLang= $part[1] ?? $this->_reCaptcha_lang;   
+                $CaptchaName    = $part[0];  // part1
+                $googleLang     = $part[1] ?? $this->_reCaptcha_lang;   // part2
+                $hCaptchaLang   = $part[1] ?? $this->_hCaptcha_lang;   // part2
                 if($CaptchaName == 'randomcaptcha'){
                     $CaptchaName =$this->_getRandomCaptchaName;
                 }
             switch ($CaptchaName) {
-                //The secret parameter is missing
+                //make bibot js link
                 case "bibot":
                     return sprintf('<script src="%s"></script>', $this->_biBotScriptURL);
-                //The secret parameter is invalid or malformed.
+                //make recaptcha js link
                 case "recaptcha":
                     // just for set lang in recaptcha you are ->>>> $this->_reCaptchaScriptURL?hl=fa
                     return sprintf('<script src="%s?hl=%s"></script>', 
                     $this->_reCaptchaScriptURL,
                     $googleLang,
                 );
+                //make hcaptcha js link
+                case "hcaptcha":
+                    // just for set lang in hcaptcha you are ->>>> $this->_hCaptchaScriptURL?hl=fa
+                    return sprintf('<script src="%s?hl=%s" async defer></script>', 
+                    $this->_hCaptchaScriptURL,
+                    $hCaptchaLang,
+                    );
                 default:
                     return sprintf('<script src="%s" async defer></script>', $this->_arCaptchaScriptURL);
             }
@@ -131,7 +156,7 @@ namespace CIMC\Libraries {
                 }
 
             switch ($CaptchaName) {
-                //The secret parameter is missing
+                //make bibot html tag
                 case "bibot":
                     return sprintf(
                         '<div class="bibot-captcha" data-sitekey="%s" data-lang="%s" data-callback="%s"></div>',
@@ -139,7 +164,7 @@ namespace CIMC\Libraries {
                         $options['lang']        ?? $this->_biBot_lang,
                         $options['callback']    ?? $this->_biBot_callback  ?? '',
                     ); 
-                //The secret parameter is invalid or malformed.
+                //make recaptcha html tag
                 case "recaptcha":
                     // just for set lang in recaptcha you are ->>>> $this->_reCaptchaScriptURL?hl=fa
                     return sprintf(
@@ -151,6 +176,22 @@ namespace CIMC\Libraries {
                         $options['callback']            ?? $this->_reCaptcha_callback           ?? '',
                         $options['expired_callback']    ?? $this->_reCaptcha_expired_callback   ?? '',
                         $options['error_callback']      ?? $this->_reCaptcha_error_callback     ?? '',
+  
+                    ); 
+                //make hcaptcha html tag
+                case "hcaptcha":
+                    return sprintf(
+                        '<div class="h-captcha" data-sitekey="%s" data-theme="%s" data-size="%s" data-tabindex="%s" data-callback="%s" data-expired-callback="%s" data-chalexpired-callback="%s" data-open-callback="%s" data-close-callback="%s" data-error-callback="%s"></div>',
+                        $this->_hCaptcha_site_key,
+                        $options['theme']                       ?? $this->_hCaptcha_theme                   ?? '',
+                        $options['size']                        ?? $this->_hCaptcha_size                    ?? '',
+                        $options['tabindex']                    ?? $this->_hCaptcha_tabindex                ?? '',
+                        $options['callback']                    ?? $this->_hCaptcha_callback                ?? '',
+                        $options['expired_callback']            ?? $this->_hCaptcha_expired_callback        ?? '',
+                        $options['chalexpired_callback']        ?? $this->_hCaptcha_chalexpired_callback    ?? '',                        
+                        $options['open_callback']               ?? $this->_hCaptcha_open_callback           ?? '',
+                        $options['close_callback']              ?? $this->_hCaptcha_close_callback          ?? '',
+                        $options['error_callback']              ?? $this->_hCaptcha_error_callback          ?? '',
   
                     ); 
                 default:
@@ -219,6 +260,23 @@ namespace CIMC\Libraries {
         }
 
         /**
+         * Verify hCaptcha the User Response
+         *
+         * 
+         */
+        public function verifyHCaptcha(string $h_captcha_response):string
+        {
+            //set params
+            $form_params["secret"]                  =   $this->_hCaptcha_secret_key;
+            $form_params["response"]                =   $h_captcha_response;
+            // set options
+            $form_params["baseURI"]                 =   $this->_hCaptchaBaseURI;
+            //RUN Method verify ReCaptcha
+            $response=static::RunApi('siteverify',$form_params);
+            return $response;
+        }
+
+        /**
          * getCaptchaFieldName return input field name for evvery captcha -- by select a captcha form input liste (arcaptcha,bibot,recaptcha)
          * @return string
          */
@@ -234,6 +292,9 @@ namespace CIMC\Libraries {
                 //input field name for recaptcha
                 case "recaptcha":
                     return "g-recaptcha-response";
+                //input field name for hcaptcha
+                case "hcaptcha":
+                    return "h-captcha-response";
                 //input field name for arcaptcha
                 default :
                     return "arcaptcha-token";
@@ -289,7 +350,7 @@ namespace CIMC\Libraries {
                 'http_errors' => false
             ];
            // confing data and form for biBot and recaptcha API. Note:::: default confing for arcaptcha API
-            if($endPoint=='api1/siteverify/' || $endPoint=='api/siteverify'){
+            if($endPoint=='api1/siteverify/' || $endPoint=='api/siteverify' || $endPoint=='siteverify'){
                 unset($form_data_type);
                 unset($form_params['baseURI']);
                 $form_data_type=[

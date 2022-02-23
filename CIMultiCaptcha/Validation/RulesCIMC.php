@@ -11,8 +11,8 @@ namespace CIMC\Validation;
  * @author          Pooya Parsa Dadashi(@datamweb)
  * @link            https://datamweb.ir
  * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
- * @since           Version 1.0.0-pre-alpha
- * @datepublic      2022-02-22 | 1400/12/03
+ * @since           Version 1.0.1-pre-alpha
+ * @datepublic      2022-02-23 | 1400/12/04
  * 
  */
 
@@ -226,6 +226,74 @@ class RulesCIMC {
             }
         }
         $error = lang('MultiCaptchaCILang.ReCaptcha.errors.unknown');
+        return (bool) false;
+    }
+
+    /**
+     * Check for a valid h_captcha_response input form
+     * @param string $h_captcha_response(token)
+     * 
+     */
+    public function hcaptcha(?string $h_captcha_response = null , string &$error = null): bool
+    {
+        // if user not answer
+        if (empty($h_captcha_response)) {
+            $error = lang('MultiCaptchaCILang.hCaptcha.errors.empty');
+            return (bool) false;
+        }
+        $Hcaptcha = $this->LibCIMC;
+        $Hcaptcha=$Hcaptcha->verifyHCaptcha($h_captcha_response); 
+        // if Unable to connect to the hcaptcha web service(api url).
+        if(!$Hcaptcha){
+            $error = lang('MultiCaptchaCILang.hCaptcha.errors.unable_to_connect_api');
+            return (bool) false;
+        }
+        //hcaptcha did not work well. Because return "error-codes" his Should retern "error_codes"
+        // for To replace - to _ in the api response.
+        $Hcaptcha = str_replace("-", "_", $Hcaptcha);
+        $Hcaptcha= json_decode($Hcaptcha);
+        //Everything is OK // $Hcaptcha->success = true
+        if($Hcaptcha->success){
+            return (bool) true;
+        }
+        //If there is an error.(!$Hcaptcha->success)
+        else{
+            switch ($Hcaptcha->error_codes[0]) {
+            //The secret parameter is missing
+            case "missing_input_secret":
+                $error = lang('MultiCaptchaCILang.hCaptcha.errors.missing_input_secret');
+                return (bool) false;
+            //The secret parameter is invalid or malformed.
+            case "invalid_input_secret":
+                $error = lang('MultiCaptchaCILang.hCaptcha.errors.invalid_input_secret');
+                return (bool) false;
+            //The response parameter is missing
+            case "missing_input_response":
+                $error = lang('MultiCaptchaCILang.hCaptcha.errors.missing_input_response');
+                return (bool) false;
+            //The response parameter is invalid or malformed.
+            case "invalid_input_response":
+                $error = lang('MultiCaptchaCILang.hCaptcha.errors.invalid_input_response');
+                return (bool) false;
+            //The request is invalid or malformed.
+            case "bad_request":
+                $error = lang('MultiCaptchaCILang.hCaptcha.errors.bad_request');
+                return (bool) false;
+            //The response parameter has already been checked, or has another issue.
+            case "invalid_or_already_seen_response":
+                $error = lang('MultiCaptchaCILang.hCaptcha.errors.invalid_or_already_seen_response');
+                return (bool) false;
+            //You have used a testing sitekey but have not used its matching secret.
+            case "not_using_dummy_passcode":
+                $error = lang('MultiCaptchaCILang.hCaptcha.errors.not_using_dummy_passcode');
+                return (bool) false;
+            //The sitekey is not registered with the provided secret
+            case "sitekey_secret_mismatch":
+                $error = lang('MultiCaptchaCILang.hCaptcha.errors.sitekey_secret_mismatch');
+                return (bool) false;
+            }
+        }
+        $error = lang('MultiCaptchaCILang.hCaptcha.errors.unknown');
         return (bool) false;
     }
 

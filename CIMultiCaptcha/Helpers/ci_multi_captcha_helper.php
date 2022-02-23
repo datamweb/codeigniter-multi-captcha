@@ -10,8 +10,8 @@
  * @author          Pooya Parsa Dadashi(@datamweb)
  * @link            https://datamweb.ir
  * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
- * @since           Version 1.0.0-pre-alpha
- * @datepublic      2022-02-22 | 1400/12/03
+ * @since           Version 1.0.1-pre-alpha
+ * @datepublic      2022-02-23 | 1400/12/04
  * 
  */
 /*
@@ -32,6 +32,8 @@
     *            *bibot     :: <script src="%s"></script>
     *            *arcaptcha :: <script src="%s" async defer></script>
     *            *recaptcha :: <script src="%s?hl=%s"></script>
+    *            *hcaptcha :: <script src="%s?hl=%s"></script>
+    *	
     */
     if (! function_exists('CIMC_JS'))
     {
@@ -47,6 +49,8 @@
     *            *bibot     :: <div class="bibot-captcha" data-sitekey="%s" data-lang="%s" data-callback="%s"></div>
     *            *arcaptcha :: <div class="arcaptcha" data-site-key="%s" data-color="%s" data-lang="%s" data-size="%s" data-theme="%s" data-callback="%s"></div>
     *            *recaptcha :: <div class="g-recaptcha" data-sitekey="%s" data-theme="%s" data-size="%s" data-tabindex="%s" data-callback="%s" data-expired-callback="%s" data-error-callback="%s"></div>
+    *            *hcaptcha :: <div class="h-captcha" data-sitekey="%s" data-theme="%s" data-size="%s" data-tabindex="%s" data-callback="%s" data-expired-callback="%s" data-error-callback="%s"></div>
+    *	
     */
     if (! function_exists('CIMC_HTML'))
     {
@@ -62,6 +66,7 @@
     *            *bibot-response
     *            *arcaptcha-token 
     *            *g-recaptcha-response
+    *            *h-captcha-response
     */
     if (! function_exists('CIMC_FIELD'))
     {
@@ -76,6 +81,8 @@
     *            *bibot     
     *            *arcaptcha 
     *            *recaptcha 
+    *            *hcaptcha 
+    *	
     */
     if (! function_exists('CIMC_RULE'))
     {
@@ -102,6 +109,10 @@
             if ($validation->hasError('g-recaptcha-response')) {
                 // show recaptcha errore by CIMC_ERRORS_SINGLE templates
                 return $validation->showError('g-recaptcha-response','CIMC_ERRORS_SINGLE');
+            }
+            if ($validation->hasError('h-captcha-response')) {
+                // show hcaptcha errore by CIMC_ERRORS_SINGLE templates
+                return $validation->showError('h-captcha-response','CIMC_ERRORS_SINGLE');
             }
             if ($validation->hasError('arcaptcha-token')) {
                 // show arcaptcha errore by CIMC_ERRORS_SINGLE templates

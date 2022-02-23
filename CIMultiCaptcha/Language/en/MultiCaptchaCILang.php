@@ -9,8 +9,8 @@
  * @author          Pooya Parsa Dadashi
  * @link            https://datamweb.ir
  * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
- * @since           Version 1.0.0-pre-alpha
- * @datepublic      2022-02-22 | 1400/12/03
+ * @since           Version 1.0.1-pre-alpha
+ * @datepublic      2022-02-23 | 1400/12/04
  * 
  */
 
@@ -77,6 +77,27 @@ return [
         // filde name for print $this->validation->setRule('g-recaptcha-response', lang('MultiCaptchaCILang.ReCaptcha.g-recaptcha-response'), 'required|recaptcha');
         //if required use filde name set
         'g-recaptcha-response'          => "I'm not a robot(recaptcha)",
+    ],
+    // Custom Validation language for hCaptcha
+    'hCaptcha'=> [
+        'errors' => [
+            'unknown'                               =>  'The system detected you as a robot for some reason, try again.',
+            'empty'                                 =>  "Please check I'm human(hcaptcha).",
+            'unable_to_connect_api'                 =>  'It is not possible to connect to hcaptcha services at this time. The Internet may be down or hcaptcha servers may be down. Try again in a few minutes.',
+            'attack'                                =>  'Avoid manipulating ReCaptcha form(I am not a robot).',
+            // hCaptcha errors Api responses
+            'missing-input-secret'                  =>  'The hcaptcha secret parameter is missing.',
+            'invalid_input_secret'                  =>  'The hcaptcha secret parameter is invalid or malformed.',
+            'missing_input_response'                =>  'The hcaptcha response parameter is missing.',
+            'invalid_input_response'                =>  'The hcaptcha response parameter is invalid or malformed.',
+            'bad_request'                           =>  'The hcaptcha request is invalid or malformed.',
+            'invalid_or_already_seen_response'      =>  'The response parameter has already been checked, or has another issue.',
+            'not_using_dummy_passcode'              =>  'You have used a testing sitekey but have not used its matching secret.',
+            'sitekey_secret_mismatch'               =>  'The sitekey is not registered with the provided secret.',
+        ],
+        // filde name for print $this->validation->setRule('h-captcha-response', lang('MultiCaptchaCILang.hCaptcha.h-captcha-response'), 'required|hcaptcha');
+        //if required use filde name set
+        'h-captcha-response'          => "I am human(hcaptcha)",
     ],
 
 ];
