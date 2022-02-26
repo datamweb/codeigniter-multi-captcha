@@ -12,8 +12,8 @@ use CodeIgniter\Config\BaseConfig;
     * @author          Pooya Parsa Dadashi(@datamweb)
     * @link            https://datamweb.ir
     * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
-    * @since           Version 1.0.1-pre-alpha
-    * @datepublic      2022-02-23 | 1400/12/04
+    * @since           Version 1.0.2-pre-alpha
+    * @datepublic      2022-02-26 | 1400/12/07
     * 
     */
 class MultiCaptchaCIConfig extends BaseConfig
@@ -86,6 +86,18 @@ class MultiCaptchaCIConfig extends BaseConfig
         //No need to change.
         'BaseURI'               =>   'https://hcaptcha.com/',                          //Required.Api Base Uri
         'ScriptURL'             =>   'https://js.hcaptcha.com/1/api.js',               //Required for run api
+    ];
+
+//Config Rate Limit''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    //You can Limit an activity to be performed to a certain number of attempts within a set period of time 
+    //And if Rate Limit enabled, allow the user to remove this restriction by solving the captcha.
+    public $rateLimit=[
+        'rate_limit_on'                         =>   true,                              //(true | false)
+        'number_of_action'                      =>   5,                                 //number of tokens the bucket holds
+        'refill_period'                         =>   HOUR,                              //amount of time it takes the bucket to refill (SECOND |MINUTE|HOUR|DAY|WEEK|MONTH|YEAR|DECADE) (note::IT IS int )
+        'captcha_name'                          =>   'recaptcha',                       //The name of the captcha used on the Rate Limit page. (arcaptcha|recaptcha|hcaptcha|bibot)
+        'rate_limit_view'                       =>   'CIMC\Views\rate_limit',           //The view of used on the Rate Limit page.
+
     ];
 
 }

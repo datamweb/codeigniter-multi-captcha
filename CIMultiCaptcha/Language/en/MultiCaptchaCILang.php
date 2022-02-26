@@ -9,8 +9,8 @@
  * @author          Pooya Parsa Dadashi
  * @link            https://datamweb.ir
  * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
- * @since           Version 1.0.1-pre-alpha
- * @datepublic      2022-02-23 | 1400/12/04
+ * @since           Version 1.0.2-pre-alpha
+ * @datepublic      2022-02-26 | 1400/12/07
  * 
  */
 
@@ -98,6 +98,24 @@ return [
         // filde name for print $this->validation->setRule('h-captcha-response', lang('MultiCaptchaCILang.hCaptcha.h-captcha-response'), 'required|hcaptcha');
         //if required use filde name set
         'h-captcha-response'          => "I am human(hcaptcha)",
+    ],
+    // Rate Limit language for view
+    'RateLimit'=> [
+        'browser_title'             => 'System security!',
+        'browser_description'       => 'Limit an activity to be performed to a certain number of attempts within a set period of time.',
+        'header_title'              => 'Rate Limiting',
+        'header_description'        => "This site allows %s actions per %s second for each user for security reasons. If the number of requests is too much, the user must resolve the captcha to remove this restriction.",
+        'form_description'          => 'Solve the captcha to overcome this limitation. Or wait for this restriction to be removed by the system for you.',
+        'submit'                    => 'Submit',
+        'title_rate_limit'          => 'MORE INFO',
+        'learn_rate_limit'          => 'Learn',
+        'explain_rate_limit'        => 'Rate Limiting is a solution for controlling incoming traffic to a network. For example, using the rate limit, it can be specified that the user is only allowed to send the requested number (requests) per minute,
+                                        and if the number of requests exceeds this amount, an error will be given. The purpose of implementing Rate limiting is:
+                                        <ul>
+                                            <li>Better traffic flow management</li>
+                                            <li>Increase security by preventing activities such as DDoS, Brute Force operations or any other malicious attack in the layered application.</li>
+                                        </ul>',
+
     ],
 
 ];

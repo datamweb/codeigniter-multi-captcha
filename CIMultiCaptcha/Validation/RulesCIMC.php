@@ -11,8 +11,8 @@ namespace CIMC\Validation;
  * @author          Pooya Parsa Dadashi(@datamweb)
  * @link            https://datamweb.ir
  * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
- * @since           Version 1.0.1-pre-alpha
- * @datepublic      2022-02-23 | 1400/12/04
+ * @since           Version 1.0.2-pre-alpha
+ * @datepublic      2022-02-26 | 1400/12/07
  * 
  */
 

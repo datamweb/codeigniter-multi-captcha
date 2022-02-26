@@ -9,8 +9,8 @@
  * @author          Pooya Parsa Dadashi
  * @link            https://datamweb.ir
  * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
- * @since           Version 1.0.1-pre-alpha
- * @datepublic      2022-02-23 | 1400/12/04
+ * @since           Version 1.0.2-pre-alpha
+ * @datepublic      2022-02-26 | 1400/12/07
  * 
  */
 
@@ -98,6 +98,24 @@ return [
         // filde name for print $this->validation->setRule('h-captcha-response', lang('MultiCaptchaCILang.hCaptcha.h-captcha-response'), 'required|hcaptcha');
         //if required use filde name set
         'h-captcha-response'                        => "من ربات نیستم(hcaptcha)",
+    ],
+    // Rate Limit language for view
+    'RateLimit'=> [
+        'browser_title'             => 'پیام امنیتی سیستم!',
+        'browser_description'       => 'محدود سازی یک فعالیت مشخص با تعداد مشخص درخواست در یک دوره زمانی معین.',
+        'header_title'              => 'محدودیت در نرخ فعالیت',
+        'header_description'        => "این سایت بنا به دلایل امنیتی اجازه %s درخواست در دوره زمانی هر  %s ثانیه را به کاربران میدهد.برای رفع این محدودیت نسبت به حل کپچا اقدام و یا منتظر باشید تا زمان لازم سپری شود.",
+        'form_description'          => 'برای رفع محدودیت لطفا نسبت به حل کپچا اقدام کنید.',
+        'submit'                    => 'ثبت پاسخ',
+        'title_rate_limit'          => 'اطلاعات بیشتر',
+        'learn_rate_limit'          => 'آموزش',
+        'explain_rate_limit'        => 'Rate Limiting یا محدودیت نرخ راهکاری برای کنترل ترافیک ورودی به یک شبکه است. برای نمونه با استفاده از Rate Limit می توان مشخص کرد 
+                                        که در هر دقیقه کاربر تنها مجاز به ارسال تعداد مشخصی درخواست (Request) باشد و اگر تعداد درخواست ها از این میزان بیش تر شد، خطا داده شود. هدف از پیاده سازی Rate limiting عبارت است از:
+                                        <ul>
+                                            <li>مدیریت بهتر جریان ترافیک</li>
+                                            <li> افزایش امنیت با پیش گیری از بروز حملاتی هم چون DDoS، حملات Brute Force یا هر نوع حمله ی مخرب دیگری در لایه ی اپلیکیشن</li>
+                                        </ul>',
+
     ],
 
 ];
