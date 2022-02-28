@@ -49,6 +49,8 @@ Rate limiting is often employed to stop bad bots from negatively impacting a web
     ];
     
 ```
+Demo Rate Limiting :: number_of_action : 5 ,captcha_name: hcaptcha
+![Demo Rate Limiting](./image/ratelimiting.gif)
 
 The default activity rate parameters in file ```MultiCaptchaCIConfig.php``` are as follows, you can decide to false or change at any time.
 ```
