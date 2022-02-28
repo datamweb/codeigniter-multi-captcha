@@ -32,8 +32,38 @@ In the next step, go to the ```app/Config``` path and add the following values i
     ];
     
 ```
+
+In the next step, go to the ```app/Config``` path and add the following values in the ```Filters.php``` file.
+Note:: This feature is supported from version V1.0.2pre-alpha onwards. With this feature you can enable RateLimit. Activity rate limit parameters can be edited through file ```app/ThirdParty/CIMultiCaptcha/Config/MultiCaptchaCIConfig.php```.
+Rate limiting is often employed to stop bad bots from negatively impacting a website or application. Bot attacks that rate limiting can help mitigate include:Brute force attacks,DoS and DDoS attacks,Web scraping.
+[More info about rate Limit](https://www.cloudflare.com/learning/bots/what-is-rate-limiting/).
+
+```
+    public $aliases = [
+        //add for mix rate limit and captcha
+        'rate_limit_by_captcha' => \CIMC\Filters\RateLimitByCaptcha::class,
+    ];
+    public $filters = [
+        //add for mix rate limit and captcha in all url
+        'rate_limit_by_captcha' => ['before' => ['/*']]
+    ];
+    
+```
+
+The default activity rate parameters in file ```MultiCaptchaCIConfig.php``` are as follows, you can decide to false or change at any time.
+```
+    public $rateLimit=[
+        'rate_limit_on'                         =>   true,                              //(true | false)
+        'number_of_action'                      =>   25,                                //number of tokens the bucket holds
+        'refill_period'                         =>   HOUR,                              //amount of time it takes the bucket to refill (SECOND |MINUTE|HOUR|DAY|WEEK|MONTH|YEAR|DECADE)
+        'captcha_name'                          =>   'recaptcha',                       //The name of the captcha used on the Rate Limit page. (arcaptcha|recaptcha|hcaptcha|bibot)
+        'rate_limit_view'                       =>   'CIMC\Views\rate_limit',           //The view of used on the Rate Limit page.
+    ];
+    
+```
+
 # Package configuration file
-Before using this package, you need to receive two dedicated keys from each of the Captcha servers. In order to receive the keys, you must register in each of the Captcha servers and receive the keys. for receive Arcaptcha service keys to [Arcaptcha registration address](https://arcaptcha.ir/sign-up) , for receive Bibot keys to [Bibot registration address](https://bibot.ir/panel/user/signup/), for receive recaptcha keys to [Recaptcha registration address](https://www.google.com/recaptcha/admin/create) and for receive hcaptcha keys to [hCaptcha registration address](https://hCaptcha.com/?r=e4b628e9c617) . Get the keys to act. Then go to a ```app/ThirdParty/CIMultiCaptcha/Config``` and replace the relevant ```site_key``` and ```secret_key``` keys in the ```MultiCaptchaCIConfig.php``` file. If you need to change the color, theme, size and... proceed through this file. In the case of the captcha language, the package defaults to any language set in the CI framework and displays the captcha in the same language. If you need to customize the captcha language, set the ```lang``` values ​​through this file. Important point in this regard, the two Iranian servers (Arcaptcha and Bibot) support only two languages ​​Persian (fa) and English (en), this restriction is related to captcha servers and not the package.
+Before using this package, you need to receive two dedicated keys from each of the Captcha servers. In order to receive the keys, you must register in each of the Captcha servers and receive the keys. for receive Arcaptcha service keys to [Arcaptcha registration address](https://arcaptcha.ir/sign-up) , for receive Bibot keys to [Bibot registration address](https://bibot.ir/panel/user/signup/), for receive recaptcha keys to [Recaptcha registration address](https://www.google.com/recaptcha/admin/create) and for receive hcaptcha keys to [hCaptcha registration address](https://hCaptcha.com/?r=e4b628e9c617) . Get the keys to act. Then go to a ```app/ThirdParty/CIMultiCaptcha/Config``` and replace the relevant ```site_key``` and ```secret_key``` keys in the ```MultiCaptchaCIConfig.php``` file. If you need to change the color, theme, size and... proceed through this file. In the case of the captcha language, the package defaults to any language set in the CI framework and displays the captcha in the same language. If you need to customize the captcha language, set the ```lang``` values through this file. Important point in this regard, the two Iranian servers (Arcaptcha and Bibot) support only two languages Persian (fa) and English (en), this restriction is related to captcha servers and not the package.
 # How to use (CIMC)
 In general, how to use this package will be in two ways. The first method is to select the service by the programmer, for example, the programmer intends to use only the recaptcha service, so he must follow the blue path according to the diagram below. The next item is the programmer has no role in specifying the service. The system randomly selects one of the services, to do this you have to follow the black path.
 ```mermaid
