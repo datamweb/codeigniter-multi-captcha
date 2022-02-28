@@ -32,6 +32,35 @@
     ];
     
 ```
+
+در مرحله بعد, به مسیر ```app/Config``` بروید ومقادیر زیر را به فایل ```Filters.php``` اضافه کنید..
+یاداشت:: این ویژگی از نسخه  V1.0.2pre-alpha به بعد پشتیبانی میشود. شما با این ویژگی میتوانید محدودیت نرخ فعالیت را فعال کنید. پارامتر های محدودیت نرخ فعالیت از طریق فایل  ```app/ThirdParty/CIMultiCaptcha/Config/MultiCaptchaCIConfig.php``` قابل ویرایش است..
+Rate Limiting می تواند تاثیر عملکرد بات های مخرب بر روی وبسایت و یا برنامه ها را متوقف کند. حملاتی که توسط Rate Limiting متوقف می شوند، شامل حملات Brute force ،DoS ، DDoS و Web scraping هستند. در ضمن Rate Limiting می تواند از فعالیت بیش از حد API ها که لزوما به دلیل فعالیت بات ها نیست، جلوگیری کند..
+[اطلاعات بیشتر در مورد محدودیت نرخ فعالیت](https://arcaptcha.ir/blog/rate-limiting-%DA%86%DB%8C%D8%B3%D8%AA%D8%9F).
+
+```
+    public $aliases = [
+        //add for mix rate limit and captcha
+        'rate_limit_by_captcha' => \CIMC\Filters\RateLimitByCaptcha::class,
+    ];
+    public $filters = [
+        //add for mix rate limit and captcha in all url
+        'rate_limit_by_captcha' => ['before' => ['/*']]
+    ];
+    
+```
+
+به صورت پیش فرض محدودیت های نرخ فعالیت در فایل  ```MultiCaptchaCIConfig.php``` به صورت زیر تنظیم شده است.شما میتوانید نسبت به لغو این ویژگی ویا تغییر پرامترها اقدام کنید.
+```
+    public $rateLimit=[
+        'rate_limit_on'                         =>   true,                              //(true | false)
+        'number_of_action'                      =>   25,                                //number of tokens the bucket holds
+        'refill_period'                         =>   HOUR,                              //amount of time it takes the bucket to refill (SECOND |MINUTE|HOUR|DAY|WEEK|MONTH|YEAR|DECADE)
+        'captcha_name'                          =>   'recaptcha',                       //The name of the captcha used on the Rate Limit page. (arcaptcha|recaptcha|hcaptcha|bibot)
+        'rate_limit_view'                       =>   'CIMC\Views\rate_limit',           //The view of used on the Rate Limit page.
+    ];
+    
+```
 # فایل پیکر بندی پکیج
 پیش از استفاده از این پکیج شما نیازمند دریافت دو کلید اختصاصی از هر یک از سرویس دهنده های کپچا هستید.به منظور دریافت کلید ها شما باید نسبت به ثبت نام در هر یک از سرویس دهنده های کپچا و نسبت به دریافت کلید ها اقدام کنید. برای دریافت کلید های سرویس آرکپچا به آدرس [ثبت نام آرکپچا]( https://arcaptcha.ir/sign-up)
  ، برای دریافت کلید های بی بات به آدرس [ثبت نام بی بات](https://bibot.ir/panel/user/signup/)
