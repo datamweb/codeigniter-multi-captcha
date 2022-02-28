@@ -53,6 +53,7 @@ Demo Rate Limiting :: number_of_action : 5 ,captcha_name: hcaptcha
 ![Demo Rate Limiting](./image/ratelimiting-en-US.gif)
 
 The default activity rate parameters in file ```MultiCaptchaCIConfig.php``` are as follows, you can decide to false or change at any time.
+
 ```
     public $rateLimit=[
         'rate_limit_on'                         =>   true,                              //(true | false)
