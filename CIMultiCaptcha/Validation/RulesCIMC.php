@@ -1,5 +1,5 @@
 <?php
-namespace CIMC\Validation;
+namespace Datamweb\CIMC\Validation;
 
 /**
  * --------------------------------------------------------------------------

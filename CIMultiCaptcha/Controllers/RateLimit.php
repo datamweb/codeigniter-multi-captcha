@@ -1,6 +1,6 @@
 <?php 
 
-namespace CIMC\Controllers;
+namespace Datamweb\CIMC\Controllers;
 
 
 /**

@@ -1,5 +1,5 @@
 <?php
-namespace CIMC\Config;
+namespace Datamweb\CIMC\Config;
 
 use CodeIgniter\Config\BaseConfig;
     /**
@@ -96,7 +96,7 @@ class MultiCaptchaCIConfig extends BaseConfig
         'number_of_action'                      =>   25,                                //number of tokens the bucket holds
         'refill_period'                         =>   HOUR,                              //amount of time it takes the bucket to refill (SECOND |MINUTE|HOUR|DAY|WEEK|MONTH|YEAR|DECADE) (note::IT IS int )
         'captcha_name'                          =>   'recaptcha',                       //The name of the captcha used on the Rate Limit page. (arcaptcha|recaptcha|hcaptcha|bibot)
-        'rate_limit_view'                       =>   'CIMC\Views\rate_limit',           //The view of used on the Rate Limit page.
+        'rate_limit_view'                       =>   'Datamweb\CIMC\Views\rate_limit',  //The view of used on the Rate Limit page.
 
     ];
 

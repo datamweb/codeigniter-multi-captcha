@@ -1,6 +1,6 @@
 <?php
 
-namespace CIMC\Config;
+namespace Datamweb\CIMC\Config;
 
 use CodeIgniter\Config\BaseService;
 
@@ -27,7 +27,7 @@ class Services extends BaseService
         if ($getShared) {
             return static::getSharedInstance('MutiCaptchCI');
         }
-        return new \CIMC\Libraries\MultiCaptchaCI();
+        return new \Datamweb\CIMC\Libraries\MultiCaptchaCI();
      }
     
 }

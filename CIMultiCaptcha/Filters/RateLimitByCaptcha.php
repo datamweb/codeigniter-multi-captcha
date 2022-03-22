@@ -1,6 +1,6 @@
 <?php
 
-namespace CIMC\Filters;
+namespace Datamweb\CIMC\Filters;
 
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;

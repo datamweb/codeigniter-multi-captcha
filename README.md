@@ -13,7 +13,7 @@ First, [download](https://github.com/datamweb/CodeIgniter-Multi-Captcha/releases
 ```
     public $psr4 = [
 	//Add this line
-        'CIMC' 	        => APPPATH . 'ThirdParty\CIMultiCaptcha',
+        'Datamweb\CIMC' 	        => APPPATH . 'ThirdParty\CIMultiCaptcha',
     ];
     
 ```
@@ -22,13 +22,13 @@ In the next step, go to the ```app/Config``` path and add the following values i
 ```
     public $ruleSets = [
         // Add this line
-        '\CIMC\Validation\RulesCIMC',
+        '\Datamweb\CIMC\Validation\RulesCIMC',
     ];
     public $templates = [
         // Add this line
-        'CIMC_ERRORS_LIST'      => 'CIMC\Validation\Views\_list.php',
+        'CIMC_ERRORS_LIST'      => 'Datamweb\CIMC\Validation\Views\_list.php',
         // Add this line
-        'CIMC_ERRORS_SINGLE'    => 'CIMC\Validation\Views\_single.php',
+        'CIMC_ERRORS_SINGLE'    => 'Datamweb\CIMC\Validation\Views\_single.php',
     ];
     
 ```
@@ -41,7 +41,7 @@ Rate limiting is often employed to stop bad bots from negatively impacting a web
 ```
     public $aliases = [
         //add for mix rate limit and captcha
-        'rate_limit_by_captcha' => \CIMC\Filters\RateLimitByCaptcha::class,
+        'rate_limit_by_captcha' => \Datamweb\CIMC\Filters\RateLimitByCaptcha::class,
     ];
     public $filters = [
         //add for mix rate limit and captcha in all url
@@ -60,7 +60,7 @@ The default activity rate parameters in file ```MultiCaptchaCIConfig.php``` are 
         'number_of_action'                      =>   25,                                //number of tokens the bucket holds
         'refill_period'                         =>   HOUR,                              //amount of time it takes the bucket to refill (SECOND |MINUTE|HOUR|DAY|WEEK|MONTH|YEAR|DECADE)
         'captcha_name'                          =>   'recaptcha',                       //The name of the captcha used on the Rate Limit page. (arcaptcha|recaptcha|hcaptcha|bibot)
-        'rate_limit_view'                       =>   'CIMC\Views\rate_limit',           //The view of used on the Rate Limit page.
+        'rate_limit_view'                       =>   'Datamweb\CIMC\Views\rate_limit',           //The view of used on the Rate Limit page.
     ];
     
 ```
