@@ -8,7 +8,14 @@ Here are tutorials on setting up, installing and how to use this package properl
 [tutorials videos in Youtube](https://www.youtube.com/playlist?list=PLOEdZeL7OZ3wudP8ajlXZD_1Lf_qv6pAb)
 
 # How to install on the Codigniter framework
+### The first method: by composer
+Installation is best done via Composer. Assuming Composer is installed globally, you may use the following command:
 
+```
+composer require datamweb/codeIgniter-multi-captcha:dev-main
+```
+
+### The second method: manually
 First, [download](https://github.com/datamweb/CodeIgniter-Multi-Captcha/releases) the latest version of the package. Then extract the downloaded zip file in the ```app/ThirdParty``` path. Now go to ```app/Config``` . Add the following to the ```Autoload.php``` file and save the file.
 ```
     public $psr4 = [
