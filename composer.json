@@ -1,7 +1,7 @@
 {
   "name": "datamweb/codeigniter-multi-captcha",
   "type": "library",
-  "description": "Multi captcha package for CodeIgniter 4.x. Support Arcaptcha(a free and professional Iranian product),Bibot(a free Iranian product),Recaptcha(an googel product) and hCaptcha.",
+  "description": "Multi captcha package for CodeIgniter 4.x. Support Arcaptcha(a free and professional Iranian product),Bibot(a free Iranian product),Recaptcha(an googel product) and hCaptcha.Comes with rate limiting support.",
   "keywords": [
       "codeigniter4", "CIMC", "captcha", "reCaptcha","ArCaptcha","hCaptcha","biBot"
   ],
@@ -24,7 +24,7 @@
   "require": {
     "php": "^7.3 || ^8.0"
   },
-  "minimum-stability": "alpha",
+  "minimum-stability": "v1.0.2-pre-alpha",
   "require-dev": {
     "codeigniter4/codeigniter4": "dev-develop"
   },
