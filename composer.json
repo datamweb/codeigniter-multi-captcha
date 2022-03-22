@@ -1,0 +1,41 @@
+{
+  "name": "datamweb/codeigniter-multi-captcha",
+  "type": "library",
+  "description": "Multi captcha package for CodeIgniter 4.x. Support Arcaptcha(a free and professional Iranian product),Bibot(a free Iranian product),Recaptcha(an googel product) and hCaptcha.",
+  "keywords": [
+      "codeigniter4", "CIMC", "captcha", "reCaptcha","ArCaptcha","hCaptcha","biBot"
+  ],
+  "homepage": "https://github.com/datamweb/CodeIgniter-Multi-Captcha",
+  "authors": [
+    {
+      "name": "Pooya Parsa Dadashi",
+      "homepage": "https://github.com/datamweb",
+      "email": "pooya_parsa_dadashi@yahoo.com",
+      "role": "Developer"
+    }
+  ],
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/codeigniter4/CodeIgniter4"
+    }
+  ],
+  "require": {
+    "php": "^7.3 || ^8.0"
+  },
+  "minimum-stability": "dev",
+  "require-dev": {
+    "codeigniter4/codeigniter4": "dev-develop"
+  },
+  "autoload": {
+    "psr-4": {
+      "CIMC\\": "CIMultiCaptcha"
+    }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "@composer dump-autoload"
+    ]
+  }
+}
