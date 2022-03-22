@@ -28,10 +28,6 @@
   "require-dev": {
     "codeigniter4/codeigniter4": "dev-main"
   },
-  "extra": {
-    "branch-alias": {
-      "dev-main": "v1.0.2-pre-alpha"
-    },
   "autoload": {
     "psr-4": {
       "Datamweb\\CIMC\\": "CIMultiCaptcha"
