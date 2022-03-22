@@ -24,7 +24,7 @@
   "require": {
     "php": "^7.3 || ^8.0"
   },
-  "minimum-stability": "v1.0.2-pre-alpha",
+  "minimum-stability": "stable",
   "require-dev": {
     "codeigniter4/codeigniter4": "dev-develop"
   },
