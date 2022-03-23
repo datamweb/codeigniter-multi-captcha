@@ -22,7 +22,7 @@ class MultiCaptchaCIConfig extends BaseConfig
 //Config  ArCaptcha''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     //You can get that at https://arcaptcha.ir/dashboard and register then get the SiteKey and SecretKey from the ArCaptcha panel.
     //
-    public $arCaptcha=[
+    public $arCaptcha = [
         'site_key'              =>  "Set_ARCaptcha_Site_Key",                       //Required. The sitekey you expect to see.
         'secret_key'            =>  "Set_ARCaptcha_Secret_Key",                     //Required. Your account secret key.
         //Enable more customization ArCaptcha .
@@ -38,7 +38,7 @@ class MultiCaptchaCIConfig extends BaseConfig
 
 //Config biBot''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     //You can get that at https://bibot.ir/panel/user/signup/ and register then get the SiteKey and SecretKey from the bibot panel.
-    public $biBot=[
+    public $biBot = [
         'site_key'              =>  "Set_biBot_Site_Key",                           //Required. The sitekey you expect to see.
         'secret_key'            =>  "Set_biBot_Secret_Key",                         //Required. Your account secret key.
         //bibot-captcha tag attributes
@@ -51,7 +51,7 @@ class MultiCaptchaCIConfig extends BaseConfig
 
 //Config Googel reCaptcha''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     //You can get that at https://www.google.com/recaptcha/admin/create and register then get the SiteKey and SecretKey from the Googel panel.
-    public $reCaptcha=[
+    public $reCaptcha = [
         'site_key'              =>   "Set_reCaptcha_Site_Key",                      //Required. The sitekey you expect to see.
         'secret_key'            =>   "Set_reCaptcha_Secret_Key",                    //Required. Your account secret key.
         'lang'                  =>  '',                                             //Optional :: fa | en (Defaults CI lang)
@@ -69,7 +69,7 @@ class MultiCaptchaCIConfig extends BaseConfig
 
 //Config hCaptcha''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     //You can get that at https://dashboard.hcaptcha.com/settings and register then get the SiteKey and SecretKey from the hcaptcha panel.
-    public $hCaptcha=[
+    public $hCaptcha = [
         'site_key'              =>   "Set_hCaptcha_Site_Key",                          //Required. The sitekey you expect to see.
         'secret_key'            =>   "Set_hCaptcha_Site_Key",                          //Required. Your account secret key.
         'lang'                  =>   '',                                               //Optional :: fa | en and https://docs.hcaptcha.com/languages (Defaults CI lang)
@@ -91,7 +91,7 @@ class MultiCaptchaCIConfig extends BaseConfig
 //Config Rate Limit''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     //You can Limit an activity to be performed to a certain number of attempts within a set period of time 
     //And if Rate Limit enabled, allow the user to remove this restriction by solving the captcha.
-    public $rateLimit=[
+    public $rateLimit = [
         'rate_limit_on'                         =>   true,                              //(true | false)
         'number_of_action'                      =>   25,                                //number of tokens the bucket holds
         'refill_period'                         =>   HOUR,                              //amount of time it takes the bucket to refill (SECOND |MINUTE|HOUR|DAY|WEEK|MONTH|YEAR|DECADE) (note::IT IS int )
