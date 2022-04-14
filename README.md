@@ -1,6 +1,6 @@
 [Farsi](./README.fa-IR.md) | English
 # CI Multi Captcha(CIMC)
-This package can be used for Codigniter Framework version 4 and above. This package supports 4 captcha services, including Arcaptcha service (professional captcha service, including image guessing, puzzles, etc. made in Iran), Bibot (puzzle captcha service made in Iran), Recaptcha (made by Google) and hCaptcha. The user of this package can specify which captcha to use or specify that a captcha be selected at random.
+This package can be used for Codigniter Framework version 4 and above. This package supports 4 captcha services, including Arcaptcha service (professional captcha service, including image guessing, puzzles, etc. made in Iran), Bibot (puzzle captcha service made in Iran), Recaptcha (made by Google) and hCaptcha. The user of this package can specify which captcha to use or specify that a captcha be selected at random. support with rate limiting.
 
 ![Demo CIMC](./image/demo_cimc-en-US.gif)
 # Installation video tutorial
