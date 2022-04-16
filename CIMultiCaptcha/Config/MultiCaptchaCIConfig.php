@@ -83,7 +83,7 @@ class MultiCaptchaCIConfig extends BaseConfig
         'open_callback'         =>   '',                                               //Optional. Called when the user display of a challenge starts.
         'close_callback'        =>   '',                                               //Optional. Called when the user dismisses a challenge.
         'error_callback'        =>   '',                                               //Optional. Called when hCaptcha encounters an error and cannot continue. If you specify an error callback, you must inform the user that they should retry. Please see https://docs.hcaptcha.com/configuration#error-codes. 
-        //No need to change.
+        //No need to change
         'BaseURI'               =>   'https://hcaptcha.com/',                          //Required.Api Base Uri
         'ScriptURL'             =>   'https://js.hcaptcha.com/1/api.js',               //Required for run api
     ];
