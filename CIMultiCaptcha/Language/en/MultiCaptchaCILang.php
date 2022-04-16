@@ -14,7 +14,7 @@
  * 
  */
 
-// Custom Validation language File for CIMC
+// Custom Validation language File for CIMC.
 return [
     // Custom Validation language for ArCaptcha
     'ArCaptcha'=> [

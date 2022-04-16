@@ -26,7 +26,7 @@ class RateLimitByCaptcha implements FilterInterface
 {
     /**
      * Here I mix Throttler and Captcha (CodeIgniter-Multi-Captcha) implementation.
-     * to implement rate limiting and CIMC for your application.
+     * to implement rate limiting and CIMC for your application
      *
      * @param array|null $arguments
      *

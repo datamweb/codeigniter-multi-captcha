@@ -21,7 +21,7 @@ namespace Datamweb\CIMC\Libraries {
     {
 
         // this is name for select by user input string in getCaptchaFieldName method (getCaptchaFieldName('arcaptcha,recaptcha,bibot'))
-        // this use in two method setScript and makeMultiCaptcha
+        // this use in two method setScript and makeMultiCaptcha.
         protected $_getRandomCaptchaName;
 
         /**

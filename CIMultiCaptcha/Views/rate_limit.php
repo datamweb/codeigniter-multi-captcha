@@ -97,7 +97,7 @@
 </head>
 
 <body>
-<!-- HEADER:HEROE SECTION -->
+<!-- HEADER:HEROE SECTION1 -->
 <header>
 	<div class="heroe">
 		<h1><?=$header_title;?></h1>

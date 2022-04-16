@@ -21,7 +21,7 @@
          Task
          ----------------: Shortcut for User friendly
          DESCRIPTION
-         ----------------: *This helper use for Fast execution 5 Command.
+         ----------------: *This helper use for Fast execution 5 Command
 
      -------------------@ End :------------------------------------------------------------------------
 */

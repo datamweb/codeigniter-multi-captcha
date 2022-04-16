@@ -1,3 +1,4 @@
+<!-- add your class -->
 <?php if (! empty($errors)) : ?>
 	<div class="yourClass" role="alert">
 		<ul>

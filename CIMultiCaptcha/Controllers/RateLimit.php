@@ -22,7 +22,7 @@ class RateLimit extends \CodeIgniter\Controller
 {
 
   /**
-   * Constructor.
+   * Constructor
    */
   public function __construct()
   {

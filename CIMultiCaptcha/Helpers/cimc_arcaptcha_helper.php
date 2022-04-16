@@ -28,7 +28,7 @@
                     * I manually converted the answer to a hash(md5) and a personal test and make hash code for every error.
                     * I sent a support request, but no response was received.
                     * This function will not be needed if documents (https://docs.arcaptcha.ir/docs/API/Verify) are changed.
-                    * BUG::There is also a bug. When the wrong site key is sent, the answer is returned as {"success": true}, if it should be returned as{"status": 401,"message": "Wrong site key"}. This is a bug in Arcaptcha API and I lost it.
+                    * BUG::There is also a bug. When the wrong site key is sent,the answer is returned as {"success": true}, if it should be returned as{"status": 401,"message": "Wrong site key"}. This is a bug in Arcaptcha API and I lost it.
 -------------------@ End :------------------------------------------------------------------------
 */
 if (! function_exists('analysisErrorsArcaptcha'))

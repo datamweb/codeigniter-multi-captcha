@@ -21,7 +21,7 @@ use CodeIgniter\Config\BaseService;
 
 class Services extends BaseService
 {
-    //CI MULTI CAPTCHA 
+    //CI MULTI CAPTCHA .
      public static function MutiCaptchCI($getShared = true)
      {
         if ($getShared) {

@@ -25,7 +25,7 @@ class RulesCIMC {
 
     /**
      * Check for a valid ar_captcha  input form
-     * @param string $challenge_id(token)
+     * @param string $challenge_id(token).
      * 
      */
     public function arcaptcha(?string $challenge_id = null,  string &$error = null): bool

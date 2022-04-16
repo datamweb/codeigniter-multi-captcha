@@ -17,7 +17,7 @@
 
 $routes->group('', ['namespace' => 'Datamweb\CIMC\Controllers'], function ($routes) {
 
-    //for rate limit page
+    //for rate limit page.
     $routes->get('ratelimit', 'RateLimit::index');
     $routes->post('ratelimit', 'RateLimit::index');
 

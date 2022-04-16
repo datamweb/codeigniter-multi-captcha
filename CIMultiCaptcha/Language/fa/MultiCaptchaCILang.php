@@ -10,7 +10,7 @@
  * @link            https://datamweb.ir
  * @github_link     https://github.com/datamweb/CodeIgniter-Multi-Captcha
  * @since           Version 1.0.2-pre-alpha
- * @datepublic      2022-02-26 | 1400/12/07
+ * @datepublic      2022-02-26 | 1400/12/07.
  * 
  */
 
