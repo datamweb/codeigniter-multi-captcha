@@ -39,8 +39,8 @@ namespace Datamweb\CIMC\Libraries {
             // ArCaptcha params 
             //..............................................................................................................            
             //api Key ArCaptcha 
-            $this->_arCaptcha_site_key              =    $MultiCaptchaCIConfig->arCaptcha['site_key'];
-            $this->_arCaptcha_secret_key            =    $MultiCaptchaCIConfig->arCaptcha['secret_key'];
+            $this->_arCaptcha_site_key              =    env('multiCaptcha.arCaptcha.siteKey', $MultiCaptchaCIConfig->arCaptcha['site_key']);
+            $this->_arCaptcha_secret_key            =    env('multiCaptcha.arCaptcha.secretKey', $MultiCaptchaCIConfig->arCaptcha['secret_key']);
             //load options from  makeMultiCaptcha($options[]) - for Enable more customization ArCaptcha.
             $this->_arCaptcha_color                 =    $options['color']     ??    $MultiCaptchaCIConfig->arCaptcha['color']    ??     'normal';
             $this->_arCaptcha_lang                  =    $options['lang']      ??    $MultiCaptchaCIConfig->arCaptcha['lang']     ??     $this->CILanguage;
@@ -55,8 +55,8 @@ namespace Datamweb\CIMC\Libraries {
             // BiBot params
             //..............................................................................................................
             // load data from BiBot config file
-            $this->_biBot_site_key                  =   $MultiCaptchaCIConfig->biBot['site_key'];
-            $this->_biBot_secret_key                =   $MultiCaptchaCIConfig->biBot['secret_key'];
+            $this->_biBot_site_key                  =   env('multiCaptcha.biBot.siteKey', $MultiCaptchaCIConfig->biBot['site_key']);
+            $this->_biBot_secret_key                =   env('multiCaptcha.biBot.secretKey', $MultiCaptchaCIConfig->biBot['secret_key']);
             //load options from  makeMultiCaptcha($options[]) - for Enable more customization biBot.
             $this->_biBot_lang                      =   $options['lang']      ??    $MultiCaptchaCIConfig->biBot['lang'] ?? $this->CILanguage;
             $this->_biBot_callback                  =   $options['callback']  ??    $MultiCaptchaCIConfig->biBot['callback'];
@@ -68,8 +68,8 @@ namespace Datamweb\CIMC\Libraries {
             // google reCaptcha params
             //..............................................................................................................
             //api Key reCaptcha 
-            $this->_reCaptcha_site_key              =   $MultiCaptchaCIConfig->reCaptcha['site_key'];
-            $this->_reCaptcha_secret_key            =   $MultiCaptchaCIConfig->reCaptcha['secret_key'];
+            $this->_reCaptcha_site_key              =   env('multiCaptcha.reCaptcha.siteKey', $MultiCaptchaCIConfig->reCaptcha['site_key']);
+            $this->_reCaptcha_secret_key            =   env('multiCaptcha.reCaptcha.secretKey', $MultiCaptchaCIConfig->reCaptcha['secret_key']);
             //load options from  makeMultiCaptcha($options[]) - for Enable more customization reCaptcha.
             $this->_reCaptcha_lang                  =   $MultiCaptchaCIConfig->reCaptcha['lang'] ?? $this->CILanguage;
             $this->_reCaptcha_theme                 =   $options['theme']               ??  $MultiCaptchaCIConfig->reCaptcha['theme'];
@@ -86,8 +86,8 @@ namespace Datamweb\CIMC\Libraries {
             // hCaptcha params
             //..............................................................................................................
             //api Key hCaptcha 
-            $this->_hCaptcha_site_key               =   $MultiCaptchaCIConfig->hCaptcha['site_key'];
-            $this->_hCaptcha_secret_key             =   $MultiCaptchaCIConfig->hCaptcha['secret_key'];
+            $this->_hCaptcha_site_key               =   env('multiCaptcha.hCaptcha.siteKey', $MultiCaptchaCIConfig->hCaptcha['site_key']);
+            $this->_hCaptcha_secret_key             =   env('multiCaptcha.hCaptcha.secretKey', $MultiCaptchaCIConfig->hCaptcha['secret_key']);
             //load options from  makeMultiCaptcha($options[]) - for Enable more customization hCaptcha.
             $this->_hCaptcha_lang                   =  $MultiCaptchaCIConfig->hCaptcha['lang']  ?? $this->CILanguage;
             $this->_hCaptcha_theme                  =  $options['theme']                        ??  $MultiCaptchaCIConfig->hCaptcha['theme'];
