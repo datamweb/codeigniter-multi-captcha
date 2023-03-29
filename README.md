@@ -11,8 +11,8 @@ Here are tutorials on setting up, installing and how to use this package properl
 ### The first method: by composer
 Installation is best done via Composer. Assuming Composer is installed globally, you may use the following command:
 
-```
-composer require datamweb/codeIgniter-multi-captcha:dev-main
+```console
+composer require datamweb/codeigniter-multi-captcha:dev-main
 ```
 
 ### The second method: manually

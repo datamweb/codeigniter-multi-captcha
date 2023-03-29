@@ -10,8 +10,8 @@
 ### روش اول : نصب با کامپوزر
 بهترین روش نصب استفاده از کامپوزر است.با فرض اینکه کامپوزر بر روی سیستم شما نصب است از دستور زیر استفاده کنید::
 
-```
-composer require datamweb/codeIgniter-multi-captcha:dev-main
+```console
+composer require datamweb/codeigniter-multi-captcha:dev-main
 ```
 
 ### روش دوم: نصب به صورت دستی
