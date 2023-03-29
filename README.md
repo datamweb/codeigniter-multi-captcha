@@ -2,7 +2,7 @@
 # CI Multi Captcha(CIMC)
 This package can be used for Codigniter Framework version 4 and above. This package supports 4 captcha services, including Arcaptcha service (professional captcha service, including image guessing, puzzles, etc. made in Iran), Bibot (puzzle captcha service made in Iran), Recaptcha (made by Google) and hCaptcha. The user of this package can specify which captcha to use or specify that a captcha be selected at random. support with rate limiting.
 
-![Demo CIMC](./image/demo_cimc-en-US.gif)
+![Demo CIMC](https://github.com/datamweb/my-repository-files/blob/main/codeigniter-multi-captcha/image/demo_cimc-en-US.gif)
 # Installation video tutorial
 Here are tutorials on setting up, installing and how to use this package properly. For information on how to use this package correctly, please watch the uploaded videos. 
 [tutorials videos in Youtube](https://www.youtube.com/playlist?list=PLOEdZeL7OZ3wudP8ajlXZD_1Lf_qv6pAb)
@@ -57,11 +57,12 @@ Rate limiting is often employed to stop bad bots from negatively impacting a web
     
 ```
 Demo Rate Limiting :: number_of_action : 5 ,captcha_name: hcaptcha
-![Demo Rate Limiting](./image/ratelimiting-en-US.gif)
+
+![Demo Rate Limiting](https://github.com/datamweb/my-repository-files/blob/main/codeigniter-multi-captcha/image/ratelimiting-en-US.gif)
 
 The default activity rate parameters in file ```MultiCaptchaCIConfig.php``` are as follows, you can decide to false or change at any time.
 
-```
+```php
     public $rateLimit=[
         'rate_limit_on'                         =>   true,                              //(true | false)
         'number_of_action'                      =>   25,                                //number of tokens the bucket holds
@@ -69,7 +70,6 @@ The default activity rate parameters in file ```MultiCaptchaCIConfig.php``` are 
         'captcha_name'                          =>   'recaptcha',                       //The name of the captcha used on the Rate Limit page. (arcaptcha|recaptcha|hcaptcha|bibot)
         'rate_limit_view'                       =>   'Datamweb\CIMC\Views\rate_limit',           //The view of used on the Rate Limit page.
     ];
-    
 ```
 
 # Package configuration file

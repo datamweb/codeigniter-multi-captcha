@@ -2,7 +2,8 @@
 # پکیج CI Multi Captcha(CIMC)
 این پکیج برای فریم ورک کُدایگنایتر نسخه 4 به بالا قابل استفاده است. این پکیج از چهار سرویس کپچا پشتیبانی میکند،شامل سرویس آرکپچا(سرویس حرفه ای کپچا،شامل حدس تصویر،پازل و ... ساخت ایران)، بی بات(سرویس کپچای پازلی ساخت ایران)، ریکپچا(ساخت گوگل) و اچ کپچا. استفاده کننده از این پکیج میتواند مشخص کند که از کدام کپچا استفاده شود و یا مشخص کند که به صورت تصادفی یک کپچا انتخاب شود.این پکیج از محدودیت نرخ فعالیت نیز پشتیبانی می کند.
 
-![Demo CIMC](./image/demo_cimc-fa-IR.gif)
+![Demo CIMC](https://github.com/datamweb/my-repository-files/blob/main/codeigniter-multi-captcha/image/demo_cimc-fa-IR.gif)
+
 # آموزش تصویری نصب و راه اندازی
 ما اینجا آموزش های مربوط به راه اندازی، نصب و نحوه استفاده صحیح از این پکیج را قرار میدهیم.برای اطلاع از روش صحیح استفاده از این پکیج لطفا اقدام به تماشایی ویدیو های آپلود شده کنید.
 [ویدیوهای آموزشی در آپارات](https://www.aparat.com/playlist/1509312)
@@ -10,24 +11,25 @@
 ### روش اول : نصب با کامپوزر
 بهترین روش نصب استفاده از کامپوزر است.با فرض اینکه کامپوزر بر روی سیستم شما نصب است از دستور زیر استفاده کنید::
 
-```
+```console
 composer require datamweb/codeIgniter-multi-captcha:dev-main
 ```
 
 ### روش دوم: نصب به صورت دستی
-ابتدا آخرین نسخه از پکیج را از [دانلود](https://github.com/datamweb/CodeIgniter-Multi-Captcha/releases) دریافت کنید.
+ابتدا آخرین نسخه از پکیج را از [دانلود](https://github.com/datamweb/codeigniter-multi-captcha/releases) دریافت کنید.
 سپس فایل فشرده دانلود شده را در مسیر ```app/ThirdParty``` اکسترکت کنید.
 اکنون به مسیر ```app/Config``` بروید. و مورد زیر را در فایل ```Autoload.php``` اضافه کنید و فایل را ذخیره کنید.
-```
+
+```php
     public $psr4 = [
 	//Add this line
         'Datamweb\CIMC' 	        => APPPATH . 'ThirdParty\CIMultiCaptcha',
     ];
-    
 ```
+
 در گام بعد به مسیر ```app/Config``` بروید در فایل ```Validation.php``` مقادیر زیر را اضافه کنید.
 
-```
+```php
     public $ruleSets = [
         // Add this line
         '\Datamweb\CIMC\Validation\RulesCIMC',
@@ -37,8 +39,7 @@ composer require datamweb/codeIgniter-multi-captcha:dev-main
         'CIMC_ERRORS_LIST'      => 'Datamweb\CIMC\Validation\Views\_list.php',
         // Add this line
         'CIMC_ERRORS_SINGLE'    => 'Datamweb\CIMC\Validation\Views\_single.php',
-    ];
-    
+    ];  
 ```
 
 در مرحله بعد, به مسیر ```app/Config``` بروید ومقادیر زیر را به فایل ```Filters.php``` اضافه کنید..
@@ -46,7 +47,7 @@ composer require datamweb/codeIgniter-multi-captcha:dev-main
 Rate Limiting می تواند تاثیر عملکرد بات های مخرب بر روی وبسایت و یا برنامه ها را متوقف کند. حملاتی که توسط Rate Limiting متوقف می شوند، شامل حملات Brute force ،DoS ، DDoS و Web scraping هستند. در ضمن Rate Limiting می تواند از فعالیت بیش از حد API ها که لزوما به دلیل فعالیت بات ها نیست، جلوگیری کند..
 [اطلاعات بیشتر در مورد محدودیت نرخ فعالیت](https://arcaptcha.ir/blog/rate-limiting-%DA%86%DB%8C%D8%B3%D8%AA%D8%9F).
 
-```
+```php
     public $aliases = [
         //add for mix rate limit and captcha
         'rate_limit_by_captcha' => \Datamweb\CIMC\Filters\RateLimitByCaptcha::class,
@@ -58,18 +59,21 @@ Rate Limiting می تواند تاثیر عملکرد بات های مخرب ب�
     
 ```
 پیشنمایشی از محدودیت نرخ فعالیت :: number_of_action : 5 ,captcha_name: hcaptcha
-![پیشنمایش محدودیت نرخ فعالیت](./image/ratelimiting-fa-IR.gif)
+
+![پیشنمایش محدودیت نرخ فعالیت](https://github.com/datamweb/my-repository-files/blob/main/codeigniter-multi-captcha/image/ratelimiting-fa-IR.gif)
+
 به صورت پیش فرض محدودیت های نرخ فعالیت در فایل  ```MultiCaptchaCIConfig.php``` به صورت زیر تنظیم شده است.شما میتوانید نسبت به لغو این ویژگی ویا تغییر پرامترها اقدام کنید.
-```
+
+```php
     public $rateLimit=[
         'rate_limit_on'                         =>   true,                              //(true | false)
         'number_of_action'                      =>   25,                                //number of tokens the bucket holds
         'refill_period'                         =>   HOUR,                              //amount of time it takes the bucket to refill (SECOND |MINUTE|HOUR|DAY|WEEK|MONTH|YEAR|DECADE)
         'captcha_name'                          =>   'recaptcha',                       //The name of the captcha used on the Rate Limit page. (arcaptcha|recaptcha|hcaptcha|bibot)
         'rate_limit_view'                       =>   'Datamweb\CIMC\Views\rate_limit',           //The view of used on the Rate Limit page.
-    ];
-    
+    ];  
 ```
+
 # فایل پیکر بندی پکیج
 پیش از استفاده از این پکیج شما نیازمند دریافت دو کلید اختصاصی از هر یک از سرویس دهنده های کپچا هستید.به منظور دریافت کلید ها شما باید نسبت به ثبت نام در هر یک از سرویس دهنده های کپچا و نسبت به دریافت کلید ها اقدام کنید. برای دریافت کلید های سرویس آرکپچا به آدرس [ثبت نام آرکپچا]( https://arcaptcha.ir/sign-up)
  ، برای دریافت کلید های بی بات به آدرس [ثبت نام بی بات](https://bibot.ir/panel/user/signup/)
